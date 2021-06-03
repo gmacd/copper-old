@@ -11,7 +11,6 @@ pub fn build(b: *Builder) void {
 
     const common_params = &[_][]const u8 {
         "qemu-system-i386",
-        "-display", "curses",
         "-kernel", kernelOutputPath,
     };
     const debug_params = &[_][]const u8 {"-s", "-S"};
@@ -44,10 +43,16 @@ fn buildKernelX86(b: *Builder) []const u8 {
     kernel.setLinkerScriptPath("src/arch/x86/linker.ld");
 
     // Putting in copperiso/boot so that it can be built into a multiboot iso for qemu
+    kernel.setOutputDir("zig-cache/iso/boot");
     //kernel.setOutputDir("build/copperiso/boot");
     // Copying the grub cfg for the iso
     //b.installFile("src/arch/x86/boot/multiboot_grub.cfg", "build/copperiso/boot/grub.cfg");
+    b.installFile("src/arch/x86/boot/multiboot_grub.cfg", "iso/boot/grub.cfg");
+
+    // Make multiboot iso
+    const mkiso = b.addSystemCommand(&[_][]const u8 {"grub-mkrescue", "-o", "zig-cache/copper.iso", "zig-cache/iso"});
+    kernel.step.dependOn(&mkiso.step);
 
     b.default_step.dependOn(&kernel.step);
-    return kernel.getOutputPath();
+    return "zig-cache/copper.iso";
 }
