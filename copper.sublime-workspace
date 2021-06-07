@@ -1,0 +1,1127 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"v",
+				"vid"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Readme.md",
+			"settings":
+			{
+				"buffer_size": 859,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					2,
+					"left_delete",
+					null,
+					"AgAAAAQDAAAAAAAABAMAAAAAAAABAAAACgMDAAAAAAAAAwMAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAABQMAAAAAAAAFAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": "  The"
+					},
+					"BQAAAAMDAAAAAAAABAMAAAAAAAAAAAAABAMAAAAAAAAFAwAAAAAAAAAAAAAFAwAAAAAAAAYDAAAAAAAAAAAAAAYDAAAAAAAABwMAAAAAAAAAAAAABwMAAAAAAAAIAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAwMAAAAAAAADAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": " a"
+					},
+					"AgAAAAgDAAAAAAAACQMAAAAAAAAAAAAACQMAAAAAAAAKAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACAMAAAAAAAAIAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAkDAAAAAAAACQMAAAAAAAABAAAAYQ",
+					"AQAAAAAAAAABAAAACgMAAAAAAAAKAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "wasm"
+					},
+					"BAAAAAkDAAAAAAAACgMAAAAAAAAAAAAACgMAAAAAAAALAwAAAAAAAAAAAAALAwAAAAAAAAwDAAAAAAAAAAAAAAwDAAAAAAAADQMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACQMAAAAAAAAJAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": " could"
+					},
+					"BgAAAA0DAAAAAAAADgMAAAAAAAAAAAAADgMAAAAAAAAPAwAAAAAAAAAAAAAPAwAAAAAAABADAAAAAAAAAAAAABADAAAAAAAAEQMAAAAAAAAAAAAAEQMAAAAAAAASAwAAAAAAAAAAAAASAwAAAAAAABMDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAADQMAAAAAAAANAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": " be"
+					},
+					"AwAAABMDAAAAAAAAFAMAAAAAAAAAAAAAFAMAAAAAAAAVAwAAAAAAAAAAAAAVAwAAAAAAABYDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAEwMAAAAAAAATAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAABYDAAAAAAAAFwMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFgMAAAAAAAAWAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					9,
+					"left_delete",
+					null,
+					"CQAAABYDAAAAAAAAFgMAAAAAAAABAAAAIBUDAAAAAAAAFQMAAAAAAAABAAAAZRQDAAAAAAAAFAMAAAAAAAABAAAAYhMDAAAAAAAAEwMAAAAAAAABAAAAIBIDAAAAAAAAEgMAAAAAAAABAAAAZBEDAAAAAAAAEQMAAAAAAAABAAAAbBADAAAAAAAAEAMAAAAAAAABAAAAdQ8DAAAAAAAADwMAAAAAAAABAAAAbw4DAAAAAAAADgMAAAAAAAABAAAAYw",
+					"AQAAAAAAAAABAAAAFwMAAAAAAAAXAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": "should"
+					},
+					"BgAAAA4DAAAAAAAADwMAAAAAAAAAAAAADwMAAAAAAAAQAwAAAAAAAAAAAAAQAwAAAAAAABEDAAAAAAAAAAAAABEDAAAAAAAAEgMAAAAAAAAAAAAAEgMAAAAAAAATAwAAAAAAAAAAAAATAwAAAAAAABQDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAADgMAAAAAAAAOAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					13,
+					1,
+					"insert",
+					{
+						"characters": " be"
+					},
+					"AwAAABQDAAAAAAAAFQMAAAAAAAAAAAAAFQMAAAAAAAAWAwAAAAAAAAAAAAAWAwAAAAAAABcDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFAMAAAAAAAAUAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					14,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAABcDAAAAAAAAGAMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAFwMAAAAAAAAXAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "JITted"
+					},
+					"BgAAABgDAAAAAAAAGQMAAAAAAAAAAAAAGQMAAAAAAAAaAwAAAAAAAAAAAAAaAwAAAAAAABsDAAAAAAAAAAAAABsDAAAAAAAAHAMAAAAAAAAAAAAAHAMAAAAAAAAdAwAAAAAAAAAAAAAdAwAAAAAAAB4DAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGAMAAAAAAAAYAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					4,
+					"left_delete",
+					null,
+					"BAAAAB0DAAAAAAAAHQMAAAAAAAABAAAAZBwDAAAAAAAAHAMAAAAAAAABAAAAZRsDAAAAAAAAGwMAAAAAAAABAAAAdBoDAAAAAAAAGgMAAAAAAAABAAAAVA",
+					"AQAAAAAAAAABAAAAHgMAAAAAAAAeAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": "T'ed"
+					},
+					"BAAAABoDAAAAAAAAGwMAAAAAAAAAAAAAGwMAAAAAAAAcAwAAAAAAAAAAAAAcAwAAAAAAAB0DAAAAAAAAAAAAAB0DAAAAAAAAHgMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGgMAAAAAAAAaAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": " when"
+					},
+					"BQAAAB4DAAAAAAAAHwMAAAAAAAAAAAAAHwMAAAAAAAAgAwAAAAAAAAAAAAAgAwAAAAAAACEDAAAAAAAAAAAAACEDAAAAAAAAIgMAAAAAAAAAAAAAIgMAAAAAAAAjAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHgMAAAAAAAAeAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					19,
+					1,
+					"insert",
+					{
+						"characters": " loaded."
+					},
+					"CAAAACMDAAAAAAAAJAMAAAAAAAAAAAAAJAMAAAAAAAAlAwAAAAAAAAAAAAAlAwAAAAAAACYDAAAAAAAAAAAAACYDAAAAAAAAJwMAAAAAAAAAAAAAJwMAAAAAAAAoAwAAAAAAAAAAAAAoAwAAAAAAACkDAAAAAAAAAAAAACkDAAAAAAAAKgMAAAAAAAAAAAAAKgMAAAAAAAArAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAIwMAAAAAAAAjAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					20,
+					1,
+					"insert",
+					{
+						"characters": "  Vould"
+					},
+					"BwAAACsDAAAAAAAALAMAAAAAAAAAAAAALAMAAAAAAAAtAwAAAAAAAAAAAAAtAwAAAAAAAC4DAAAAAAAAAAAAAC4DAAAAAAAALwMAAAAAAAAAAAAALwMAAAAAAAAwAwAAAAAAAAAAAAAwAwAAAAAAADEDAAAAAAAAAAAAADEDAAAAAAAAMgMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAKwMAAAAAAAArAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": " have"
+					},
+					"BQAAADIDAAAAAAAAMwMAAAAAAAAAAAAAMwMAAAAAAAA0AwAAAAAAAAAAAAA0AwAAAAAAADUDAAAAAAAAAAAAADUDAAAAAAAANgMAAAAAAAAAAAAANgMAAAAAAAA3AwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAMgMAAAAAAAAyAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					22,
+					1,
+					"insert",
+					{
+						"characters": " a"
+					},
+					"AgAAADcDAAAAAAAAOAMAAAAAAAAAAAAAOAMAAAAAAAA5AwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAANwMAAAAAAAA3AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": " cache"
+					},
+					"BgAAADkDAAAAAAAAOgMAAAAAAAAAAAAAOgMAAAAAAAA7AwAAAAAAAAAAAAA7AwAAAAAAADwDAAAAAAAAAAAAADwDAAAAAAAAPQMAAAAAAAAAAAAAPQMAAAAAAAA+AwAAAAAAAAAAAAA+AwAAAAAAAD8DAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAOQMAAAAAAAA5AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					24,
+					1,
+					"insert",
+					{
+						"characters": " for"
+					},
+					"BAAAAD8DAAAAAAAAQAMAAAAAAAAAAAAAQAMAAAAAAABBAwAAAAAAAAAAAABBAwAAAAAAAEIDAAAAAAAAAAAAAEIDAAAAAAAAQwMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAPwMAAAAAAAA/AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": " common"
+					},
+					"BwAAAEMDAAAAAAAARAMAAAAAAAAAAAAARAMAAAAAAABFAwAAAAAAAAAAAABFAwAAAAAAAEYDAAAAAAAAAAAAAEYDAAAAAAAARwMAAAAAAAAAAAAARwMAAAAAAABIAwAAAAAAAAAAAABIAwAAAAAAAEkDAAAAAAAAAAAAAEkDAAAAAAAASgMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQwMAAAAAAABDAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					26,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAEoDAAAAAAAASwMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASgMAAAAAAABKAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					27,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEoDAAAAAAAASgMAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAASwMAAAAAAABLAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAAEoDAAAAAAAASwMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASgMAAAAAAABKAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": " small"
+					},
+					"BgAAAEsDAAAAAAAATAMAAAAAAAAAAAAATAMAAAAAAABNAwAAAAAAAAAAAABNAwAAAAAAAE4DAAAAAAAAAAAAAE4DAAAAAAAATwMAAAAAAAAAAAAATwMAAAAAAABQAwAAAAAAAAAAAABQAwAAAAAAAFEDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASwMAAAAAAABLAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					30,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAFEDAAAAAAAAUgMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUQMAAAAAAABRAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					31,
+					1,
+					"insert",
+					{
+						"characters": "tools."
+					},
+					"BgAAAFIDAAAAAAAAUwMAAAAAAAAAAAAAUwMAAAAAAABUAwAAAAAAAAAAAABUAwAAAAAAAFUDAAAAAAAAAAAAAFUDAAAAAAAAVgMAAAAAAAAAAAAAVgMAAAAAAABXAwAAAAAAAAAAAABXAwAAAAAAAFgDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUgMAAAAAAABSAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					32,
+					6,
+					"left_delete",
+					null,
+					"BgAAAFcDAAAAAAAAVwMAAAAAAAABAAAALlYDAAAAAAAAVgMAAAAAAAABAAAAc1UDAAAAAAAAVQMAAAAAAAABAAAAbFQDAAAAAAAAVAMAAAAAAAABAAAAb1MDAAAAAAAAUwMAAAAAAAABAAAAb1IDAAAAAAAAUgMAAAAAAAABAAAAdA",
+					"AQAAAAAAAAABAAAAWAMAAAAAAABYAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					33,
+					1,
+					"insert",
+					{
+						"characters": "programs."
+					},
+					"CQAAAFIDAAAAAAAAUwMAAAAAAAAAAAAAUwMAAAAAAABUAwAAAAAAAAAAAABUAwAAAAAAAFUDAAAAAAAAAAAAAFUDAAAAAAAAVgMAAAAAAAAAAAAAVgMAAAAAAABXAwAAAAAAAAAAAABXAwAAAAAAAFgDAAAAAAAAAAAAAFgDAAAAAAAAWQMAAAAAAAAAAAAAWQMAAAAAAABaAwAAAAAAAAAAAABaAwAAAAAAAFsDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUgMAAAAAAABSAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					36,
+					1,
+					"left_delete",
+					null,
+					"AQAAAC0DAAAAAAAALQMAAAAAAAABAAAAVg",
+					"AQAAAAAAAAABAAAALgMAAAAAAAAuAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": "C"
+					},
+					"AQAAAC0DAAAAAAAALgMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAALQMAAAAAAAAtAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					42,
+					4,
+					"delete_word",
+					{
+						"forward": false
+					},
+					"BAAAAFIDAAAAAAAAUgMAAAAAAAAIAAAAcHJvZ3JhbXNMAwAAAAAAAEwDAAAAAAAABgAAAHNtYWxsIEoDAAAAAAAASgMAAAAAAAACAAAALCBEAwAAAAAAAEQDAAAAAAAABgAAAGNvbW1vbg",
+					"AQAAAAAAAAABAAAAWgMAAAAAAABaAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					43,
+					1,
+					"insert",
+					{
+						"characters": "recently"
+					},
+					"CAAAAEQDAAAAAAAARQMAAAAAAAAAAAAARQMAAAAAAABGAwAAAAAAAAAAAABGAwAAAAAAAEcDAAAAAAAAAAAAAEcDAAAAAAAASAMAAAAAAAAAAAAASAMAAAAAAABJAwAAAAAAAAAAAABJAwAAAAAAAEoDAAAAAAAAAAAAAEoDAAAAAAAASwMAAAAAAAAAAAAASwMAAAAAAABMAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARAMAAAAAAABEAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					44,
+					1,
+					"insert",
+					{
+						"characters": " used"
+					},
+					"BQAAAEwDAAAAAAAATQMAAAAAAAAAAAAATQMAAAAAAABOAwAAAAAAAAAAAABOAwAAAAAAAE8DAAAAAAAAAAAAAE8DAAAAAAAAUAMAAAAAAAAAAAAAUAMAAAAAAABRAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATAMAAAAAAABMAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					45,
+					1,
+					"insert",
+					{
+						"characters": " programs"
+					},
+					"CQAAAFEDAAAAAAAAUgMAAAAAAAAAAAAAUgMAAAAAAABTAwAAAAAAAAAAAABTAwAAAAAAAFQDAAAAAAAAAAAAAFQDAAAAAAAAVQMAAAAAAAAAAAAAVQMAAAAAAABWAwAAAAAAAAAAAABWAwAAAAAAAFcDAAAAAAAAAAAAAFcDAAAAAAAAWAMAAAAAAAAAAAAAWAMAAAAAAABZAwAAAAAAAAAAAABZAwAAAAAAAFoDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAUQMAAAAAAABRAwAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "build.zig",
+			"settings":
+			{
+				"buffer_size": 2739,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"them",
+				"UI: Select Color Scheme"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"thee",
+				"UI: Select Theme"
+			],
+			[
+				"git his",
+				"Sublime Merge: File History"
+			],
+			[
+				"comm",
+				"Toggle Comment"
+			],
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/graham/Documents/code/copper"
+	],
+	"file_history":
+	[
+		"/home/graham/Documents/code/copper/Readme.md",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/386/pci.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/io.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/msi.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/ioapic.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/apic.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/apic.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/qmalloc.c",
+		"/home/graham/Documents/code/harvey/harvey/util/GO9PCPU",
+		"/home/graham/Documents/code/harvey/harvey/util/GO9PUROOT",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devsd.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/sdiahci.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/fns.h",
+		"/home/graham/Documents/code/harvey/harvey/rc/bin/diskparts",
+		"/home/graham/Documents/code/harvey/harvey/rc/bin/termrc",
+		"/home/graham/Documents/code/harvey/harvey/util/GO9PTERM",
+		"/home/graham/Documents/code/harvey/harvey/util/GO9PIMGUSB",
+		"/home/graham/Documents/code/harvey/harvey/util/GO9PIMG",
+		"/home/graham/Documents/code/harvey/harvey/util/GO9PCPUDOCKER",
+		"/home/graham/Documents/code/harvey/harvey/sys/include/libc.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/rio/rio.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/rio/util.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/tcs/plan9.h",
+		"/home/graham/Documents/code/harvey/harvey/amd64/include/u.h",
+		"/home/graham/Documents/code/harvey/util.go",
+		"/home/graham/Documents/code/harvey/harvey/apex/include/regexp.h",
+		"/home/graham/Documents/code/harvey/plan9front/sys/src/cmd/nusb/serial/serial.c",
+		"/home/graham/Documents/code/harvey/plan9front/sys/src/lib9p/queue.c",
+		"/home/graham/Documents/code/harvey/plan9front/sys/man/2/9pqueue",
+		"/home/graham/Documents/code/harvey/plan9front/sys/src/lib9p/srv.c",
+		"/home/graham/Documents/code/harvey/plan9front/sys/include/libc.h",
+		"/home/graham/Documents/code/harvey/plan9front/sys/include/9p.h",
+		"/home/graham/Documents/code/harvey/plan9front/sys/src/lib9p/rfork.c",
+		"/home/graham/Documents/code/harvey/plan9front/sys/src/lib9p/post.c",
+		"/home/graham/Documents/code/harvey/plan9front/sys/src/9/port/dev.c",
+		"/home/graham/Documents/code/harvey/plan9front/lib/namespace",
+		"/home/graham/Documents/code/harvey/plan9front/rc/bin/nusbrc",
+		"/home/graham/Documents/code/harvey/plan9front/sys/src/lib9p/thread.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devmnt.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/aarch64/cpu.json",
+		"/home/graham/Documents/code/harvey/harvey/rc/bin/cpurc",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/dev9p.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devmntn.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/sysfile.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/portdat.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/dev.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/port.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/cam/cam.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/cam/ctl.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/cam/video.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/disk/scsireq.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/lib/dump.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/lib/usb.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devenv.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devsrv.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devsegment.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devether.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devmouse.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/ip/devip.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devramfs.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/devvga.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/portfns.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/vnc/compat.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devshr.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/chan.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/dat.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/lib9p/srv.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/include/9p.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/vnc/error.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/error.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/errstr.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/sysconf.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/devbridge.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/devacpi.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/cpu.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/spatches/patch_externup.cocci",
+		"/home/graham/Documents/code/harvey/harvey/util/mach8.cocci",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/386/ether82557.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/arch.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/spatches/ref.cocci",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/spatches/patch_scalar.cocci",
+		"/home/graham/Documents/code/harvey/harvey/sys/include/usb/ums.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/disk/ums.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/libusb/disk/disk.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/include/usb/scsireq.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/disk/scsireq.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/disk/disk.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/cam/dat.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/ether/ether.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/ptp/ptp.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/serial/serial.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/usbd/usbd.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/audio/audio.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/audio/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/spatches/getcallerpc.cocci",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/usb.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/disk/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/ether/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/joy/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/kb/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/ptp/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/serial/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/usbd/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/cam/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/libusb/lib/dump.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/libusb/ether/asix.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/libusb/lib/dev.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/include/usb/usb.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/lib/dev.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/lib9p/rfork.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/build.json",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/cmd/frontusb/LICENSE",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/physalloc.c",
+		"/home/graham/Documents/code/harvey/harvey/rc/bin/usbfat:",
+		"/home/graham/Documents/code/harvey/harvey/.gitignore",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/port/slab.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/multiboot.c",
+		"/home/graham/Documents/code/harvey/harvey/rc/bin/urootrc",
+		"/home/graham/Documents/code/harvey/harvey/cfg/example/termrc",
+		"/home/graham/Documents/code/harvey/harvey/rc/bin/termrc.local",
+		"/home/graham/Documents/code/harvey/harvey/usr/harvey/lib/profile",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/cbscreen.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/mmu.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/mem.h",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/pamap.c",
+		"/home/graham/Documents/code/harvey/harvey/sys/src/9/amd64/amd64.h"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Readme.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 859,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								858,
+								858
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "build.zig",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2739,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Zig Language/Syntaxes/Zig.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "copper.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"build",
+				"build.zig"
+			],
+			[
+				"qmall",
+				"sys/src/9/amd64/qmalloc.c"
+			],
+			[
+				"sdia",
+				"sys/src/9/amd64/sdiahci.c"
+			],
+			[
+				"termrc",
+				"rc/bin/termrc"
+			],
+			[
+				"devsd",
+				"sys/src/9/port/devsd.c"
+			],
+			[
+				"rio.c",
+				"sys/src/cmd/rio/rio.c"
+			],
+			[
+				"go9pter",
+				"util/GO9PTERM"
+			],
+			[
+				"go9pc",
+				"util/GO9PCPU"
+			],
+			[
+				"9pqu",
+				"sys/src/lib9p/queue.c"
+			],
+			[
+				"dev.c",
+				"sys/src/9/port/dev.c"
+			],
+			[
+				"cpurc",
+				"rc/bin/cpurc"
+			],
+			[
+				"term",
+				"rc/bin/termrc"
+			],
+			[
+				"devmnt",
+				"sys/src/9/port/devmnt.c"
+			],
+			[
+				"devshr",
+				"sys/src/9/port/devshr.c"
+			],
+			[
+				"lib/usb",
+				"sys/src/cmd/frontusb/lib/usb.h"
+			],
+			[
+				"lib/dum",
+				"sys/src/cmd/frontusb/lib/dump.c"
+			],
+			[
+				"scsire",
+				"sys/src/cmd/frontusb/disk/scsireq.c"
+			],
+			[
+				"video.",
+				"sys/src/cmd/frontusb/cam/video.c"
+			],
+			[
+				"cam.c",
+				"sys/src/cmd/frontusb/cam/cam.c"
+			],
+			[
+				"mach",
+				"util/mach8.cocci"
+			],
+			[
+				"mach co",
+				"util/mach8.cocci"
+			],
+			[
+				"cocci",
+				"util/mach8.cocci"
+			],
+			[
+				"patch_sc",
+				"sys/src/spatches/patch_scalar.cocci"
+			],
+			[
+				"devsh",
+				"sys/src/9/port/devshr.c"
+			],
+			[
+				"disk.c",
+				"sys/src/libusb/disk/disk.c"
+			],
+			[
+				"scsireq.c",
+				"sys/src/cmd/frontusb/disk/scsireq.c"
+			],
+			[
+				"disk.c fron",
+				"sys/src/cmd/frontusb/disk/disk.c"
+			],
+			[
+				"ums.h",
+				"sys/include/usb/ums.h"
+			],
+			[
+				"scsireq",
+				"sys/src/cmd/frontusb/disk/scsireq.h"
+			],
+			[
+				"video.c",
+				"sys/src/cmd/frontusb/cam/video.c"
+			],
+			[
+				"video",
+				"sys/src/cmd/frontusb/cam/video.c"
+			],
+			[
+				"ctl.c",
+				"sys/src/cmd/frontusb/cam/ctl.c"
+			],
+			[
+				"audio.c",
+				"sys/src/cmd/frontusb/audio/audio.c"
+			],
+			[
+				"dump.c",
+				"sys/src/cmd/frontusb/lib/dump.c"
+			],
+			[
+				"usb.h",
+				"sys/src/cmd/frontusb/lib/usb.h"
+			],
+			[
+				"cideo",
+				"sys/src/cmd/frontusb/cam/video.c"
+			],
+			[
+				"rfork",
+				"sys/src/lib9p/rfork.c"
+			],
+			[
+				"usbfat",
+				"rc/bin/usbfat:"
+			],
+			[
+				".gitig",
+				".gitignore"
+			],
+			[
+				"go9pt",
+				"util/GO9PTERM"
+			],
+			[
+				"slab",
+				"sys/src/9/port/slab.c"
+			],
+			[
+				"physal",
+				"sys/src/9/amd64/physalloc.c"
+			],
+			[
+				"uroo",
+				"rc/bin/urootrc"
+			],
+			[
+				"urootr",
+				"rc/bin/urootrc"
+			],
+			[
+				"pamap",
+				"sys/src/9/amd64/pamap.c"
+			],
+			[
+				"main.c",
+				"sys/src/9/amd64/main.c"
+			],
+			[
+				"devproc",
+				"sys/src/9/port/devproc.c"
+			],
+			[
+				"devpro",
+				"sys/src/9/port/devprobe.c"
+			],
+			[
+				"image.c",
+				"sys/src/9/port/image.c"
+			],
+			[
+				"allocb.c",
+				"sys/src/9/port/allocb.c"
+			],
+			[
+				"devip",
+				"sys/src/9/ip/devip.c"
+			],
+			[
+				"memor",
+				"sys/src/9/amd64/memory.c"
+			],
+			[
+				"paq",
+				"sys/lib/sysconfig/proto/armpaqproto"
+			],
+			[
+				"devram",
+				"sys/src/9/port/devramfs.c"
+			],
+			[
+				"devboo",
+				"sys/src/9/port/devcoreboot.c"
+			],
+			[
+				"mntgen",
+				"sys/src/cmd/mntgen.c"
+			],
+			[
+				"init.h",
+				"sys/src/9/amd64/init.h"
+			],
+			[
+				"go9pur",
+				"util/GO9PUROOT"
+			],
+			[
+				"kernel.ld",
+				"sys/src/9/amd64/kernel.ld"
+			],
+			[
+				"go uro",
+				"util/GO9PUROOT"
+			],
+			[
+				"cfs",
+				"sys/src/cmd/cfs/cfs.c"
+			],
+			[
+				"ls.c",
+				"sys/src/cmd/ls.c"
+			],
+			[
+				"boot",
+				"bootstrap.sh"
+			],
+			[
+				"tcc.c",
+				"tcc.c"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "splh",
+		"selected_items":
+		[
+			[
+				"splh",
+				"splhi"
+			],
+			[
+				"chartorune",
+				"chartorune"
+			],
+			[
+				"runesel",
+				"Runeself"
+			],
+			[
+				"srvrele",
+				"srvrelease"
+			],
+			[
+				"slprobe",
+				"slprobe"
+			],
+			[
+				"srvre",
+				"srvrelease"
+			],
+			[
+				"devatt",
+				"devattach"
+			],
+			[
+				"mntattach",
+				"mntattachversion"
+			],
+			[
+				"attach",
+				"sdattach"
+			],
+			[
+				"ramcreate",
+				"ramcreate"
+			],
+			[
+				"srvcre",
+				"srvcreate"
+			],
+			[
+				"segmentcre",
+				"segmentcreate"
+			],
+			[
+				"devcre",
+				"devcreate"
+			],
+			[
+				"ramcre",
+				"ramcreate"
+			],
+			[
+				"mntcre",
+				"mntcreate"
+			],
+			[
+				"ipcre",
+				"ipcreate"
+			],
+			[
+				"envcre",
+				"envcreate"
+			],
+			[
+				"mousecr",
+				"mousecreate"
+			],
+			[
+				"ethercre",
+				"ethercreate"
+			],
+			[
+				"v9crea",
+				"v9pcreate"
+			],
+			[
+				"phcre",
+				"phcreate"
+			],
+			[
+				"devcreate",
+				"devcreate"
+			],
+			[
+				"devgen",
+				"devgen"
+			],
+			[
+				"multib",
+				"multiboot"
+			]
+		],
+		"width": 650.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 216.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

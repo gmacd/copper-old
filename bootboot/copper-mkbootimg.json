@@ -1,0 +1,13 @@
+{
+    "disksize": 128,
+    "config": "./config",
+    "initrd": {
+        "type": "tar",
+        "gzip": true,
+        "directory": [ "boot/aarch64", "boot/x86_64" ]
+    },
+    "iso9660": true,
+    "partitions": [
+        { "type": "boot", "size": 16 }
+    ]
+}

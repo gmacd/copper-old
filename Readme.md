@@ -12,5 +12,4 @@ The image can contain other files/drivers that can be loaded by the boot loader.
 
 BOOTBOOT/CONFIG stores the config vars.
 
-Everything other than the kernel should be bytecode (wasm).  Ideally  we shuld be able to edit it live, like with smalltalk, but I have not idea how to do that.
-
+Everything other than the kernel should be bytecode (wasm).  Ideally  we shuld be able to edit it live, like with smalltalk, but I have not idea how to do that.  The wasm should be JIT'ed when loaded.  Could have a cache for recently used programs.
