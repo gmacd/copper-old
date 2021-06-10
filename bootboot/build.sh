@@ -3,10 +3,9 @@ rm -rf copper.img boot/
 
 mkdir -p boot/aarch64/sys
 mkdir -p boot/x86_64/sys
-cp mykernel.aarch64.elf boot/aarch64/sys/copperkernel
-#cp mykernel.x86_64.elf boot/x86_64/sys/copperkernel
 
-cp ../build/copper boot/x86_64/sys/copperkernel
+cp ../build/copper.x86_64 boot/x86_64/sys/copperkernel
+cp ../build/copper.aarch64 boot/aarch64/sys/copperkernel
 
 ./mkbootimg copper-mkbootimg.json copper.img
 

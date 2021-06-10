@@ -1,4 +1,4 @@
-zig-out/
 build/
 zig-cache/
 copper.sublime-workspace
+copper.img

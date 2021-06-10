@@ -2,32 +2,31 @@ const Array = @import("std").ArrayList;
 const Builder = @import("std").build.Builder;
 const builtin = @import("builtin");
 const CrossTarget = @import("std").zig.CrossTarget;
+const Arch = @import("std").Target.Cpu.Arch;
 const Step = @import("std").build.Step;
 
 const buildDir = "build";
 
 pub fn build(b: *Builder) void {
-    const kernelStep = buildKernelX86(b);
-    _ = kernelStep;
+    const kernelStepX86 = buildKernel(b, Arch.x86_64);
+    const kernelStepAarch64 = buildKernel(b, Arch.aarch64);
+    _ = kernelStepX86;
+    _ = kernelStepAarch64;
     //const kernelOutputPath = buildKernelImageX86(b, kernelStep);
     //qemuStep(b, kernelOutputPath);
 }
 
-fn buildKernelX86(b: *Builder) *Step {
+fn buildKernel(b: *Builder, comptime arch: Arch) *Step {
     // Standard release options allow the person running `zig build` to select
     // between Debug, ReleaseSafe, ReleaseFast, and ReleaseSmall.
     const buildMode = b.standardReleaseOptions();
-    const target = CrossTarget{ .cpu_arch = .x86_64, .os_tag = .freestanding, .abi = .none };
+    const target = CrossTarget{ .cpu_arch = arch, .os_tag = .freestanding, .abi = .none };
 
-    const kernel = b.addExecutable("copper", "src/main.zig");
+    const kernel = b.addExecutable("copper." ++ @tagName(arch), "src/main.zig");
     kernel.setBuildMode(buildMode);
     kernel.setTarget(target);
-    kernel.setLinkerScriptPath("src/arch/x86/linker.ld");
-
-    // Putting in copperiso/boot so that it can be built into a multiboot iso for qemu
+    kernel.setLinkerScriptPath("src/linker.ld");
     kernel.setOutputDir(buildDir);
-    //kernel.setOutputDir("build/copperiso/boot");
-
     b.default_step.dependOn(&kernel.step);
     return &kernel.step;
 }
