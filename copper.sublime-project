@@ -3,7 +3,7 @@
 	[
 		{
 			"path": ".",
-			"folder_exclude_patterns": [".vscode", "build", "zig-cache"],
+			"folder_exclude_patterns": [".vscode", "build", "zig-cache", "zig-out"],
 		}
 	],
 }

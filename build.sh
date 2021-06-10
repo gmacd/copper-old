@@ -19,4 +19,4 @@ cd zig-out && ../bootboot/mkbootimg ../bootboot/copper-mkbootimg.json copper.img
 # qemu x86 linux
 # qemu-system-x86_64 -kernel bootboot.bin -drive file=zig-out/copper.img,format=raw -serial stdio
 # qemu aarch64
-# qemu-system-aarch64 -M raspi3 -kernel bootboot-rpi.img -drive file=zig-out/copper.img,if=sd,format=raw -serial stdio
+# qemu-system-aarch64 -M raspi3 -kernel bootboot/bootboot-rpi.img -drive file=zig-out/copper.img,if=sd,format=raw -serial stdio
