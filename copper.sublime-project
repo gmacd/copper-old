@@ -6,4 +6,7 @@
 			"folder_exclude_patterns": [".vscode", "build", "zig-cache", "zig-out"],
 		}
 	],
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"use_tab_stops": true,
 }

@@ -1,9 +1,14 @@
+const builtin = @import("builtin");
 const bb = @import("bootboot.zig");
+
+const archInit = @import("arch/" ++ @tagName(builtin.cpu.arch) ++ "/init.zig");
 
 extern var bootboot: bb.BootBootInfo;
 extern var fb: [*]u8;
 
 export fn _start() noreturn {
+    archInit.init(bootboot);
+
     const s = bootboot.fb_scanline;
     const w = bootboot.fb_width;
     const h = bootboot.fb_height;

@@ -13,3 +13,11 @@ The image can contain other files/drivers that can be loaded by the boot loader.
 BOOTBOOT/CONFIG stores the config vars.
 
 Everything other than the kernel should be bytecode (wasm).  Ideally  we shuld be able to edit it live, like with smalltalk, but I have not idea how to do that.  The wasm should be JIT'ed when loaded.  Could have a cache for recently used programs.
+
+TODO
+1. Set up write-only serial port
+  1. Logging that uses serial initially
+  2. rasp3 serial
+2. Set up basic interrupts
+3. Kernel allocator
+  1. Get something braindead working first
