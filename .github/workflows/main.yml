@@ -2,11 +2,9 @@ name: CI
 
 on:
   push:
-    paths:
-    - '**.zig'
+    branches: [ main ]
   pull_request:
-    paths:
-    - '**.zig'
+    branches: [ main ]
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
@@ -24,10 +22,10 @@ jobs:
           submodules: true
       - uses: goto-bus-stop/setup-zig@v1
         with:
-          version: master
+          version: 0.8.0
 
       - name: Build
-        run: zig build
+        run: zig version && zig build
 
       # ZLS Tests currently fail on windows? Once they are passing and kept up to date, this can be enabled everywhere
       - name: Run tests
