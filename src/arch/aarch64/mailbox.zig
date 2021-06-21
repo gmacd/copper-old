@@ -63,8 +63,8 @@ fn buildMsg(args: []Arg, buf: *SliceIterator.of(u32)) u32 {
                 }
             },
             Arg.Out => {},
-            Arg.In => |ptr| {
-                buf.add(ptr.*);
+            Arg.In => |value| {
+                buf.add(value);
             },
             Arg.Set => |ptr| {
                 buf.add(ptr.*);
@@ -113,9 +113,8 @@ pub fn out(ptr: *u32) Arg {
     return Arg{ .Out = ptr };
 }
 
-// TODO Why does this accept a pointer?
-pub fn in(ptr: *const u32) Arg {
-    return Arg{ .In = ptr };
+pub fn in(value: u32) Arg {
+    return Arg{ .In = value };
 }
 
 pub const TAG_LAST_SENTINEL = 0;
@@ -129,7 +128,7 @@ pub fn tag(the_tag: u32, length: u32) Arg {
 }
 
 pub const Arg = union(enum) {
-    In: *const u32,
+    In: u32,
     Out: *u32,
     Set: *u32,
     TagAndLength: TagAndLength,
@@ -218,16 +217,16 @@ fn isEmpty(this: *Mailbox) bool {
 const expectEqual = std.testing.expectEqual;
 const expectEqualSlices = std.testing.expectEqualSlices;
 
-test "expect in release fast mode" {
+test "buildMsg" {
     const clockId: u32 = 2;
     const clockRateHz: u32 = 3000000;
     const clockSkipSettingTurbo: u32 = 0;
 
     var mailboxMsg = [_]Arg{
         tag(SET_CLOCK_RATE, 12),
-        in(&clockId),
-        in(&clockRateHz),
-        in(&clockSkipSettingTurbo),
+        in(clockId),
+        in(clockRateHz),
+        in(clockSkipSettingTurbo),
         tag(TAG_LAST_SENTINEL, 0),
     };
 

@@ -114,9 +114,9 @@ pub const Serial = struct {
         const clockSkipSettingTurbo: u32 = 0;
         var mailboxMsg = [_]mailbox.Arg{
             mailbox.tag(mailbox.SET_CLOCK_RATE, 12),
-            mailbox.in(&clockId),
-            mailbox.in(&clockRateHz),
-            mailbox.in(&clockSkipSettingTurbo),
+            mailbox.in(clockId),
+            mailbox.in(clockRateHz),
+            mailbox.in(clockSkipSettingTurbo),
             mailbox.tag(mailbox.TAG_LAST_SENTINEL, 0),
         };
         mailbox.sendMsg(&mailboxMsg);
