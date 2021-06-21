@@ -28,7 +28,7 @@ jobs:
         run: zig build
 
       # ZLS Tests currently fail on windows? Once they are passing and kept up to date, this can be enabled everywhere
-      #- name: Run tests
+      - name: Run tests
         #if: ${{ matrix.os == 'ubuntu-latest' }}
         run: zig test src/test.zig
 
