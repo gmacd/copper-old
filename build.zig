@@ -8,9 +8,13 @@ const Step = std.build.Step;
 const fs = std.fs;
 const print = @import("std").debug.print;
 
+const info = std.log.info;
+
 const buildDir = "zig-out";
 
 pub fn build(b: *Builder) void {
+    print("zig version {}", .{builtin.zig_version});
+
     const kernelStepX86 = buildKernel(b, Arch.x86_64);
     const kernelStepAarch64 = buildKernel(b, Arch.aarch64);
     _ = kernelStepX86;
