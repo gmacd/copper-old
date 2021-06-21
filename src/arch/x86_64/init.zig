@@ -1,8 +1,8 @@
 const bb = @import("../../bootboot.zig");
-const serial = @import("serial.zig");
+const uart = @import("uart.zig");
 
 pub fn init(bootboot: bb.BootBootInfo) void {
-    serial.initPreInterrupt(serial.COM1);
-
+    const serial = uart.Serial.init();
+    serial.initPreInterrupt();
     serial.print("fooooo\nxxx");
 }
