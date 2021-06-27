@@ -41,6 +41,7 @@ pub fn log(
     // const stderr = std.io.getStdErr().writer();
     // nosuspend stderr.print(prefix ++ format ++ "\n", args) catch return;
 
+    // TODO formatting
     sys.serial.print(prefix ++ format ++ "\n");
 }
 
