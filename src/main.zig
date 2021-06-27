@@ -1,16 +1,16 @@
 const builtin = @import("builtin");
 const std = @import("std");
-const assert = @import("std").debug.assert;
 const bb = @import("bootboot.zig");
 const screen = @import("screen.zig");
-//const sys = @import("sys.zig");
+const Sys = @import("sys.zig").Sys;
 
 const archPath = "arch/" ++ @tagName(builtin.cpu.arch);
 const archInit = @import(archPath ++ "/init.zig");
-const archSerial = @import(archPath ++ "/serial.zig");
 
 extern var bootboot: bb.BootBootInfo;
 extern var fb: [*]u8;
+
+var sys: *Sys = undefined;
 
 // TODO take log level from kernel args?
 pub const log_level: std.log.Level = .debug;
@@ -41,17 +41,12 @@ pub fn log(
     // const stderr = std.io.getStdErr().writer();
     // nosuspend stderr.print(prefix ++ format ++ "\n", args) catch return;
 
-    //sys.serial.print("112233\n");
+    sys.serial.print(prefix ++ format ++ "\n");
 }
 
 export fn _start() noreturn {
-    //var archSerialXXX = archSerial.ArchSerial().init();
-    //var serial: *sys.Serial = &archSerialXXX.serial;
-    //serial.print("foobar");
-    //std.log.info("hello", .{});
-
-    var sys = archInit.init(&bootboot);
-    sys.serial.print("foobar");
+    sys = archInit.init(&bootboot);
+    std.log.info("CopperOS", .{});
 
     const s = bootboot.fb_scanline;
     const w = bootboot.fb_width;

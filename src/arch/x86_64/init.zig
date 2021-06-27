@@ -1,6 +1,6 @@
 const bb = @import("../../bootboot.zig");
 const Sys = @import("../../sys.zig").Sys;
-const Serial = @import("serial.zig").Serial;
+const Serial = @import("Serial.zig");
 
 const ArchSys = struct {
     sys: Sys,
