@@ -11,7 +11,7 @@ const Raspi = enum {
 
 var mmioBase: u64 = 0;
 
-pub fn init(bootboot: bb.BootBootInfo) void {
+pub fn init(bootboot: *bb.BootBootInfo) void {
     // TODO how do we know what kind of raspi this is?
     // Let's go for raspi3 for now, since that's what qemu supports on my machine.
     const raspi = Raspi.Raspi3;

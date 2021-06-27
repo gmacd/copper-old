@@ -65,101 +65,97 @@ const MBOX_WRITE = MBOX_BASE + 0x20;
 //    9*4, 0, 0x38002, 12, 8, 2, 3000000, 0 ,0
 //};
 
-pub fn ArchSerial() type {
-    return struct {
-        serial: sys.Serial,
-        uartBase: u32,
+pub const Serial = struct {
+    serial: sys.Serial,
+    uartBase: u32,
 
-        const Self = @This();
+    pub fn init() Serial {
+        var uartBase: u32 = UART0_BASE;
 
-        pub fn init() Self {
-            var uartBase: u32 = UART0_BASE;
+        // Disable uart
+        mmio.write(uartBase + UART_CR, 0x0);
 
-            // Disable uart
-            mmio.write(uartBase + UART_CR, 0x0);
+        // Setup GPIO pins 14 and 15
+        // Disable pull up/down for all GPIO pins & delay for 150 cycles
+        mmio.write(GPPUD, 0x0);
+        // TODO replace with time.xxx code?
+        aarch64.delay(150);
 
-            // Setup GPIO pins 14 and 15
-            // Disable pull up/down for all GPIO pins & delay for 150 cycles
-            mmio.write(GPPUD, 0x0);
-            // TODO replace with time.xxx code?
-            aarch64.delay(150);
+        // Disable pull up/down for pin 14 and 15 & delay for 150 cycles
+        mmio.write(GPPUDCLK0, (1 << 14) | (1 << 15));
+        // TODO replace with time.xxx code?
+        aarch64.delay(150);
 
-            // Disable pull up/down for pin 14 and 15 & delay for 150 cycles
-            mmio.write(GPPUDCLK0, (1 << 14) | (1 << 15));
-            // TODO replace with time.xxx code?
-            aarch64.delay(150);
+        // Write 0 to GPPUDCLK0 to make it take effect
+        mmio.write(GPPUDCLK0, 0x0);
 
-            // Write 0 to GPPUDCLK0 to make it take effect
-            mmio.write(GPPUDCLK0, 0x0);
+        // Clear pending interrupts.
+        mmio.write(uartBase + UART_ICR, 0x7ff);
 
-            // Clear pending interrupts.
-            mmio.write(uartBase + UART_ICR, 0x7ff);
+        // Set integer & fractional part of baud rate.
+        // Divider = UART_CLOCK/(16 * Baud)
+        // Fraction part register = (Fractional part * 64) + 0.5
+        // Baud = 115200.
 
-            // Set integer & fractional part of baud rate.
-            // Divider = UART_CLOCK/(16 * Baud)
-            // Fraction part register = (Fractional part * 64) + 0.5
-            // Baud = 115200.
+        //var r: [*]u32 = &mboxClock;
 
-            //var r: [*]u32 = &mboxClock;
+        // For Raspi3 and 4 the UART_CLOCK is system-clock dependent by default.
+        // Set it to 3Mhz so that we can consistently set the baud rate
+        const clockId: u32 = 2;
+        const clockRateHz: u32 = 3000000;
+        const clockSkipSettingTurbo: u32 = 0;
+        var mailboxMsg = [_]mailbox.Arg{
+            mailbox.tag(mailbox.SET_CLOCK_RATE, 12),
+            mailbox.in(clockId),
+            mailbox.in(clockRateHz),
+            mailbox.in(clockSkipSettingTurbo),
+            mailbox.tag(mailbox.TAG_LAST_SENTINEL, 0),
+        };
+        mailbox.sendMsg(&mailboxMsg);
 
-            // For Raspi3 and 4 the UART_CLOCK is system-clock dependent by default.
-            // Set it to 3Mhz so that we can consistently set the baud rate
-            const clockId: u32 = 2;
-            const clockRateHz: u32 = 3000000;
-            const clockSkipSettingTurbo: u32 = 0;
-            var mailboxMsg = [_]mailbox.Arg{
-                mailbox.tag(mailbox.SET_CLOCK_RATE, 12),
-                mailbox.in(clockId),
-                mailbox.in(clockRateHz),
-                mailbox.in(clockSkipSettingTurbo),
-                mailbox.tag(mailbox.TAG_LAST_SENTINEL, 0),
-            };
-            mailbox.sendMsg(&mailboxMsg);
+        //var r: u32 = @ptrToInt(((&mboxClock) & ~0xF) | 8);
+        // wait until we can talk to the VChttps://github.com/ziglang/zig/issues/265 is
+        //while (mmio.read(MBOX_STATUS) & 0x80000000) {}
+        // send our message to property channel and wait for the response
+        //mmio.write(MBOX_WRITE, r);
+        //while ((mmio.read(MBOX_STATUS) & 0x40000000) || mmio.read(MBOX_READ) != r) {}
 
-            //var r: u32 = @ptrToInt(((&mboxClock) & ~0xF) | 8);
-            // wait until we can talk to the VChttps://github.com/ziglang/zig/issues/265 is
-            //while (mmio.read(MBOX_STATUS) & 0x80000000) {}
-            // send our message to property channel and wait for the response
-            //mmio.write(MBOX_WRITE, r);
-            //while ((mmio.read(MBOX_STATUS) & 0x40000000) || mmio.read(MBOX_READ) != r) {}
+        // Divider = 3000000 / (16 * 115200) = 1.627 = ~1.
+        mmio.write(uartBase + UART_IBRD, 1);
+        // Fractional part register = (.627 * 64) + 0.5 = 40.6 = ~40.
+        mmio.write(uartBase + UART_FBRD, 40);
 
-            // Divider = 3000000 / (16 * 115200) = 1.627 = ~1.
-            mmio.write(uartBase + UART_IBRD, 1);
-            // Fractional part register = (.627 * 64) + 0.5 = 40.6 = ~40.
-            mmio.write(uartBase + UART_FBRD, 40);
+        // Enable FIFO & 8 bit data transmission (1 stop bit, no parity).
+        mmio.write(uartBase + UART_LCRH, (1 << 4) | (1 << 5) | (1 << 6));
 
-            // Enable FIFO & 8 bit data transmission (1 stop bit, no parity).
-            mmio.write(uartBase + UART_LCRH, (1 << 4) | (1 << 5) | (1 << 6));
+        // Mask all interrupts.
+        mmio.write(uartBase + UART_IMSC, (1 << 1) | (1 << 4) | (1 << 5) | (1 << 6) |
+            (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10));
 
-            // Mask all interrupts.
-            mmio.write(uartBase + UART_IMSC, (1 << 1) | (1 << 4) | (1 << 5) | (1 << 6) |
-                (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10));
+        // Enable UART0, receive & transfer part of UART.
+        mmio.write(uartBase + UART_CR, (1 << 0) | (1 << 8) | (1 << 9));
 
-            // Enable UART0, receive & transfer part of UART.
-            mmio.write(uartBase + UART_CR, (1 << 0) | (1 << 8) | (1 << 9));
+        return Serial{
+            .uartBase = uartBase,
+            .serial = sys.Serial{
+                .printFn = print,
+            },
+        };
+    }
 
-            return Self{
-                .uartBase = uartBase,
-                .serial = sys.Serial{
-                    .printFn = print,
-                },
-            };
+    fn transmitterEmpty(uartBase: u32) bool {
+        return mmio.read(uartBase + UART_FR) & (1 << 5) > 0;
+    }
+
+    pub fn printChar(uartBase: u32, c: u8) void {
+        while (!transmitterEmpty(uartBase)) {}
+        mmio.write(uartBase + UART_DR, c);
+    }
+
+    pub fn print(serial: *sys.Serial, str: []const u8) void {
+        const self = @fieldParentPtr(Serial, "serial", serial);
+        for (str) |c| {
+            printChar(self.uartBase, c);
         }
-
-        fn transmitterEmpty(uartBase: u32) bool {
-            return mmio.read(uartBase + UART_FR) & (1 << 5) > 0;
-        }
-
-        pub fn printChar(uartBase: u32, c: u8) void {
-            while (!transmitterEmpty(uartBase)) {}
-            mmio.write(uartBase + UART_DR, c);
-        }
-
-        pub fn print(serial: *sys.Serial, str: []const u8) void {
-            const self = @fieldParentPtr(Self, "serial", serial);
-            for (str) |c| {
-                printChar(self.uartBase, c);
-            }
-        }
-    };
-}
+    }
+};

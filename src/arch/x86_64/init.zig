@@ -1,8 +1,18 @@
 const bb = @import("../../bootboot.zig");
-const uart = @import("serial.zig");
+const Sys = @import("../../sys.zig").Sys;
+const Serial = @import("serial.zig").Serial;
 
-pub fn init(bootboot: bb.BootBootInfo) void {
-    uart.serial = uart.Serial.init();
-    serial.initPreInterrupt();
-    serial.print("fooooo\nxxx");
+const ArchSys = struct {
+    sys: Sys,
+    // arch-specific
+    serial: Serial,
+};
+
+var archSys: ArchSys = undefined;
+
+pub fn init(bootboot: *bb.BootBootInfo) *Sys {
+    archSys.serial = Serial.init();
+    archSys.sys.serial = &archSys.serial.serial;
+
+    return &archSys.sys;
 }

@@ -39,6 +39,13 @@ To run:
 - Move buildimg.sh functionality into build.zig
 - Boot on riscv64
 - Replace bootboot with own bootloader
+- Allow massive concurrency, fast messaging
+- Load previous version of images at startup.  Timeline
+- Debugger is essential.  OS level, eary
+- Use imgui
+- Write 10 things about it and come up with 20 examples: https://www.quora.com/What-does-Alan-Kay-think-about-the-following-research-proposal-notes-about-a-new-software-world-https-osoco-es-thoughts-2020-06-notes-about-a-new-software-world
+- use nile for scalable graphicss
+- run it on a raspi 400, or riscv machine.  better chance of building a community
 
 ## Random Thoughts...
 - Are mailboxes a good analogy for IPC?  See zen kernel

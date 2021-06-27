@@ -36,7 +36,7 @@ fn buildKernel(b: *Builder, comptime arch: Arch) *Step {
     kernel.setTarget(target);
     kernel.setLinkerScriptPath("src/linker.ld");
     kernel.setOutputDir(buildDir);
-    kernel.addObjectFile("font.o");
+    kernel.addObjectFile(buildDir++"/font.o");
 
     b.default_step.dependOn(&kernel.step);
 
@@ -49,7 +49,7 @@ fn buildKernel(b: *Builder, comptime arch: Arch) *Step {
     // Convert font to object file
     const build_font = b.addSystemCommand(&[_][]const u8{
         //"ld.lld", "-r", "-b", "binary", "-o", "font.o", "assets/font.psf",
-        "ld.lld", "-m", lldTargetEmulation, "-z", "noexecstack", "-r", "-b", "binary", "-o", "font.o", "assets/font.psf",
+        "ld.lld", "-m", lldTargetEmulation, "-z", "noexecstack", "-r", "-b", "binary", "-o", buildDir ++ "/font.o", "assets/font.psf",
     });
     kernel.step.dependOn(&build_font.step);
 

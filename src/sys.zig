@@ -5,3 +5,7 @@ pub const Serial = struct {
         self.printFn(self, str);
     }
 };
+
+pub const Sys = struct {
+    serial: *Serial,
+};
