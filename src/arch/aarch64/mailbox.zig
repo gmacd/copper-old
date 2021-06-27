@@ -18,7 +18,7 @@ const mailbox1ArmToVc = Mailbox.init(1);
 /// Send the message via the mailbox, blocking until it receives a response.
 /// The responses will be embedded in the 'out' parameters supplies in args.
 pub fn sendMsg(args: []Arg) void {
-    var words: [1024]u32 align(16) = undefined;
+    var words: [64]u32 align(16) = undefined;
     var buf = SliceIterator.of(u32).init(&words);
     const bufsize = buildMsg(args, &buf);
 
@@ -230,7 +230,7 @@ test "buildMsg" {
         tag(TAG_LAST_SENTINEL, 0),
     };
 
-    var bufArray: [1024]u32 align(16) = undefined;
+    var bufArray: [64]u32 align(16) = undefined;
     var buf = SliceIterator.of(u32).init(&bufArray);
     const bufsize = buildMsg(&mailboxMsg, &buf);
 

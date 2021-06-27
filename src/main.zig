@@ -1,13 +1,21 @@
 const builtin = @import("builtin");
+const std = @import("std");
+const assert = @import("std").debug.assert;
 const bb = @import("bootboot.zig");
+const screen = @import("screen.zig");
+const sys = @import("sys.zig");
 
-const archInit = @import("arch/" ++ @tagName(builtin.cpu.arch) ++ "/init.zig");
+const archPath = "arch/" ++ @tagName(builtin.cpu.arch);
+const archInit = @import(archPath ++ "/init.zig");
+const archSerial = @import(archPath ++ "/serial.zig");
 
 extern var bootboot: bb.BootBootInfo;
 extern var fb: [*]u8;
 
 export fn _start() noreturn {
-    archInit.init(bootboot);
+    var archSerialXXX = archSerial.ArchSerial().init();
+    var serial: *sys.Serial = &archSerialXXX.serial;
+    serial.print("foobar");
 
     const s = bootboot.fb_scanline;
     const w = bootboot.fb_width;
@@ -35,6 +43,8 @@ export fn _start() noreturn {
             y += 1;
         }
     }
+
+    //  screen.print("hello from copperos");
 
     while (true) {}
 }

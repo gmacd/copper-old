@@ -13,7 +13,7 @@ pub const BootBootInfo = packed struct {
     protocol: u8, // 1, static addresses, see PROTOCOL_* and LOADER_* above
     fb_type: u8, // framebuffer type, see FB_* above
     numcores: u16, // number of processor cores
-    bspid: u16, // Bootsrap processor ID (Local APIC Id on x86_64)
+    bspid: u16, // Bootstrap processor ID (Local APIC Id on x86_64)
     timezone: i16, // in minutes -1440..1440
     datetime: [8]u8, // in BCD yyyymmddhhiiss UTC (independent to timezone)
     initrd_ptr: u64, // ramdisk image position and size

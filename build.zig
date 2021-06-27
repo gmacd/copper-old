@@ -13,7 +13,7 @@ const info = std.log.info;
 const buildDir = "zig-out";
 
 pub fn build(b: *Builder) void {
-    print("zig version {}", .{builtin.zig_version});
+    print("zig version {}\n", .{builtin.zig_version});
 
     const kernelStepX86 = buildKernel(b, Arch.x86_64);
     const kernelStepAarch64 = buildKernel(b, Arch.aarch64);
@@ -36,8 +36,22 @@ fn buildKernel(b: *Builder, comptime arch: Arch) *Step {
     kernel.setTarget(target);
     kernel.setLinkerScriptPath("src/linker.ld");
     kernel.setOutputDir(buildDir);
+    kernel.addObjectFile("font.o");
 
     b.default_step.dependOn(&kernel.step);
+
+    const lldTargetEmulation = switch (arch) {
+        Arch.x86_64 => "elf_x86_64",
+        Arch.aarch64 => "aarch64elf",
+        else => unreachable,
+    };
+
+    // Convert font to object file
+    const build_font = b.addSystemCommand(&[_][]const u8{
+        //"ld.lld", "-r", "-b", "binary", "-o", "font.o", "assets/font.psf",
+        "ld.lld", "-m", lldTargetEmulation, "-z", "noexecstack", "-r", "-b", "binary", "-o", "font.o", "assets/font.psf",
+    });
+    kernel.step.dependOn(&build_font.step);
 
     return &kernel.step;
 }
