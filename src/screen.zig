@@ -1,5 +1,6 @@
 //! Basic screen functionality
 
+const std = @import("std");
 const bb = @import("bootboot.zig");
 
 //extern fn printx(s: []u8) void;
@@ -55,39 +56,44 @@ extern var bootboot: bb.BootBootInfo;
 // }
 
 pub fn print(str: []const u8) void {
-    //printx("1\n");
+    std.log.info("1", .{});
 
     const font: *const PsFont = @ptrCast(*const PsFont, &_binary_assets_font_psf_start);
     var kx: u32 = 0;
     var bpl = (font.width + 7) / 8;
     for (str) |c| {
+        std.log.info("2", .{});
         const glyphIdx = if (c > 0 and c < font.numGlyphs) c else 0;
         var glyph: *u32 = @intToPtr(*u32, (@ptrToInt(&_binary_assets_font_psf_start) + font.headerSize + glyphIdx * font.bytesPerGlyph));
         var offs = kx * (font.width + 1) * 4;
 
         var y: u32 = 0;
         while (y < font.height) : (y += 1) {
+            std.log.info("3", .{});
             var line = offs;
-            var one: u5 = 1;
-            var fw: u3 = @intCast(u3, font.width);
-            var mask: u32 = one << (fw);
+
+            var mask: u32 = 1;
+            mask <<= @intCast(u5, font.width - 1);
+            std.log.info("31", .{});
 
             var x: u32 = 0;
             while (x < font.width) : (x += 1) {
+                std.log.info("4", .{});
                 var pixelPtr: *u32 = @intToPtr(*u32, @ptrToInt(&fb) + line);
-                //var maskval = 0;
-                //if (mask > 0) {
-                //    maskval = 0xffffff;
-                //}
                 var maskval: u32 = if (mask > 0) 0xffffff else 0;
                 pixelPtr.* = glyph.* & maskval;
                 mask >>= 1;
                 line += 4;
+                std.log.info("5", .{});
             }
+            std.log.info("6", .{});
             var pixelPtr: *u32 = @intToPtr(*u32, @ptrToInt(&fb) + line);
             pixelPtr.* = 0;
-            glyph = @intToPtr(*u32, @ptrToInt(glyph) + bpl);
+            std.log.info("7", .{});
+            glyph = @intToPtr(*u32, @ptrToInt(glyph) + bpl * @sizeOf(u32));
+            std.log.info("8", .{});
             offs += bootboot.fb_scanline;
+            std.log.info("9", .{});
         }
         kx += 1;
     }

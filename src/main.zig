@@ -22,61 +22,55 @@ pub fn log(
     comptime format: []const u8,
     args: anytype,
 ) void {
-    // Ignore all non-critical logging from sources other than
-    // .my_project, .nice_library and .default
-    // const scope_prefix = "(" ++ switch (scope) {
-    //     .my_project, .nice_library, .default => @tagName(scope),
-    //     else => if (@enumToInt(level) <= @enumToInt(std.log.Level.crit))
-    //         @tagName(scope)
-    //     else
-    //         return,
-    // } ++ "): ";
-
-    //const prefix = "[" ++ @tagName(level) ++ "] " ++ scope_prefix;
     const prefix = "[" ++ @tagName(level) ++ "] ";
 
-    // Print the message to stderr, silently ignoring any errors
-    // const held = std.debug.getStderrMutex().acquire();
-    // defer held.release();
-    // const stderr = std.io.getStdErr().writer();
-    // nosuspend stderr.print(prefix ++ format ++ "\n", args) catch return;
+    // TODO lock?
+    sys.serial.print(prefix);
 
-    // TODO formatting
-    sys.serial.print(prefix ++ format ++ "\n");
+    var buf: [4]u8 = undefined;
+    if (std.fmt.bufPrint(buf[0..], format, args)) |str| {
+        sys.serial.print(str);
+    } else |err| {
+        sys.serial.print(" (Error formatting: '" ++ format ++ "' error: ");
+        sys.serial.print(@errorName(err));
+        sys.serial.print(")");
+    }
+
+    sys.serial.print("\n");
 }
 
 export fn _start() noreturn {
     sys = archInit.init(&bootboot);
-    std.log.info("CopperOS", .{});
+    std.log.info("Copper {}", .{123});
 
-    const s = bootboot.fb_scanline;
-    const w = bootboot.fb_width;
-    const h = bootboot.fb_height;
+    // const s = bootboot.fb_scanline;
+    // const w = bootboot.fb_width;
+    // const h = bootboot.fb_height;
 
-    if (s > 0) {
-        var y: usize = 0;
-        while (y < h) {
-            @intToPtr(*u32, @ptrToInt(&fb) + (s * y) + (w * 2)).* = 0x00ffffff;
-            y += 1;
-        }
-        var x: usize = 0;
-        while (x < w) {
-            @intToPtr(*u32, @ptrToInt(&fb) + (s * (h / 2)) + (x * 4)).* = 0x00ffffff;
-            x += 1;
-        }
+    // if (s > 0) {
+    //     var y: usize = 0;
+    //     while (y < h) {
+    //         @intToPtr(*u32, @ptrToInt(&fb) + (s * y) + (w * 2)).* = 0x00ffffff;
+    //         y += 1;
+    //     }
+    //     var x: usize = 0;
+    //     while (x < w) {
+    //         @intToPtr(*u32, @ptrToInt(&fb) + (s * (h / 2)) + (x * 4)).* = 0x00ffffff;
+    //         x += 1;
+    //     }
 
-        y = 0;
-        while (y < 20) {
-            x = 0;
-            while (x < 20) {
-                @intToPtr(*u32, @ptrToInt(&fb) + (s * y + 20) + (x + 20) * 4).* = 0x00ff0000;
-                x += 1;
-            }
-            y += 1;
-        }
-    }
+    //     y = 0;
+    //     while (y < 20) {
+    //         x = 0;
+    //         while (x < 20) {
+    //             @intToPtr(*u32, @ptrToInt(&fb) + (s * y + 20) + (x + 20) * 4).* = 0x00ff0000;
+    //             x += 1;
+    //         }
+    //         y += 1;
+    //     }
+    // }
 
-    //  screen.print("hello from copperos");
+    screen.print("X");
 
     while (true) {}
 }
