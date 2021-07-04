@@ -56,44 +56,45 @@ extern var bootboot: bb.BootBootInfo;
 // }
 
 pub fn print(str: []const u8) void {
-    std.log.info("1", .{});
-
+    std.log.info("Coppe {c} {d}", .{ '#', 567 });
     const font: *const PsFont = @ptrCast(*const PsFont, &_binary_assets_font_psf_start);
+    //    std.log.info("font w:{} h:", .{123});
+
     var kx: u32 = 0;
     var bpl = (font.width + 7) / 8;
     for (str) |c| {
-        std.log.info("2", .{});
+        //std.log.info("2", .{});
         const glyphIdx = if (c > 0 and c < font.numGlyphs) c else 0;
         var glyph: *u32 = @intToPtr(*u32, (@ptrToInt(&_binary_assets_font_psf_start) + font.headerSize + glyphIdx * font.bytesPerGlyph));
         var offs = kx * (font.width + 1) * 4;
 
         var y: u32 = 0;
         while (y < font.height) : (y += 1) {
-            std.log.info("3", .{});
+            //std.log.info("3", .{});
             var line = offs;
 
             var mask: u32 = 1;
             mask <<= @intCast(u5, font.width - 1);
-            std.log.info("31", .{});
+            //std.log.info("31", .{});
 
             var x: u32 = 0;
             while (x < font.width) : (x += 1) {
-                std.log.info("4", .{});
+                //std.log.info("4", .{});
                 var pixelPtr: *u32 = @intToPtr(*u32, @ptrToInt(&fb) + line);
                 var maskval: u32 = if (mask > 0) 0xffffff else 0;
                 pixelPtr.* = glyph.* & maskval;
                 mask >>= 1;
                 line += 4;
-                std.log.info("5", .{});
+                //std.log.info("5", .{});
             }
-            std.log.info("6", .{});
+            //std.log.info("6", .{});
             var pixelPtr: *u32 = @intToPtr(*u32, @ptrToInt(&fb) + line);
             pixelPtr.* = 0;
-            std.log.info("7", .{});
+            //std.log.info("7", .{});
             glyph = @intToPtr(*u32, @ptrToInt(glyph) + bpl * @sizeOf(u32));
-            std.log.info("8", .{});
+            //std.log.info("8", .{});
             offs += bootboot.fb_scanline;
-            std.log.info("9", .{});
+            //std.log.info("9", .{});
         }
         kx += 1;
     }

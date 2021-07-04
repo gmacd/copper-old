@@ -1,4 +1,5 @@
 const builtin = @import("builtin");
+const StackTrace = @import("std").builtin.StackTrace;
 const std = @import("std");
 const bb = @import("bootboot.zig");
 const screen = @import("screen.zig");
@@ -27,21 +28,32 @@ pub fn log(
     // TODO lock?
     sys.serial.print(prefix);
 
-    var buf: [4]u8 = undefined;
+    var buf: [2048]u8 = undefined;
     if (std.fmt.bufPrint(buf[0..], format, args)) |str| {
         sys.serial.print(str);
+        sys.serial.print("x\n");
     } else |err| {
         sys.serial.print(" (Error formatting: '" ++ format ++ "' error: ");
         sys.serial.print(@errorName(err));
-        sys.serial.print(")");
+        sys.serial.print(")\n");
     }
-
-    sys.serial.print("\n");
 }
 
-export fn _start() noreturn {
+pub fn panic(msg: []const u8, stack_trace: ?*StackTrace) noreturn {
+    sys.serial.print("===============================\n");
+    sys.serial.print("Kernel Panic.  Guru Meditation.\n");
+    sys.serial.print(msg);
+    sys.serial.print("\n");
+    // TODO Use halt instruction
+    // TODO Dump stacktrace: https://andrewkelley.me/post/zig-stack-traces-kernel-panic-bare-bones-os.html
+    while (true) {}
+}
+
+export fn kernelStart() void {
     sys = archInit.init(&bootboot);
     std.log.info("Copper {}", .{123});
+
+    // TODO cpu timing setup
 
     // const s = bootboot.fb_scanline;
     // const w = bootboot.fb_width;
@@ -70,7 +82,5 @@ export fn _start() noreturn {
     //     }
     // }
 
-    screen.print("X");
-
-    while (true) {}
+    screen.print("i");
 }

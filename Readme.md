@@ -19,6 +19,8 @@ To run:
 - use @embedFile instead of ld for font
 - look up clashos tty reload feature
 - more kernel code into 'kernel' subfolder
+- set up stack
+- ensure red-zone disabled
 
 ### Immediate
 1. Set up write-only serial port
@@ -44,8 +46,17 @@ To run:
 - Debugger is essential.  OS level, eary
 - Use imgui
 - Write 10 things about it and come up with 20 examples: https://www.quora.com/What-does-Alan-Kay-think-about-the-following-research-proposal-notes-about-a-new-software-world-https-osoco-es-thoughts-2020-06-notes-about-a-new-software-world
-- use nile for scalable graphicss
+- use nile for scalable graphics
 - run it on a raspi 400, or riscv machine.  better chance of building a community
+
+### 10 Things
+1. Build a system that gives direct access to as much as possible.  Based on permission, allow them to modify and replace any part of the system.  Editor and debugger should always be part of the system.
+2. System should be cross platform from the start.  x86 and aarch64 initially, then riscv64.  64 bit only.  Apart from kernel, rest of system should be wasm (or some other bytecode).
+3. It should be very easy to create good graphical UIs.  Shouldn't need to resort to TUIs.
+4. Everything (system state and user state) should be undoable, with branches.  Log-based filesystem?
+5. Always keep checkpointed versions of the core system available in case user breaks something.  Should always be able to recover the system.
+6. Use some sort of distributed ID for login
+7. Use git behind the scenes to checkpoint changes to the source (need one repo for main system).  Commit automatically on successful recompile, periodically push to upstream.
 
 ## Random Thoughts...
 - Are mailboxes a good analogy for IPC?  See zen kernel

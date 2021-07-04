@@ -18,7 +18,7 @@ pub fn build(b: *Builder) void {
     const kernelStepX86 = buildKernel(b, Arch.x86_64);
     const kernelStepAarch64 = buildKernel(b, Arch.aarch64);
     _ = kernelStepX86;
-    _ = kernelStepAarch64;
+    //_ = kernelStepAarch64;
     //const kernelOutputPath = buildKernelImage(b, kernelStepX86, kernelStepAarch64);
     //qemuStep(b, kernelOutputPath);
 }
@@ -28,10 +28,11 @@ fn buildKernel(b: *Builder, comptime arch: Arch) *Step {
     // Standard release options allow the person running `zig build` to select
     // between Debug, ReleaseSafe, ReleaseFast, and ReleaseSmall.
     const buildMode = b.standardReleaseOptions();
-    const target = CrossTarget{ .cpu_arch = arch, .os_tag = .freestanding, .abi = .none };
+    const target = CrossTarget{ .cpu_arch = arch, .os_tag = .freestanding, .abi = .eabihf };
 
     // Build kernel
     const kernel = b.addExecutable("copper." ++ @tagName(arch), "src/main.zig");
+    kernel.addAssemblyFile("src/arch/" ++ @tagName(arch) ++ "/_start.s");
     kernel.setBuildMode(buildMode);
     kernel.setTarget(target);
     kernel.setLinkerScriptPath("src/linker.ld");
