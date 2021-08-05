@@ -25,7 +25,7 @@ jobs:
           version: 0.8.0
 
       - name: Build
-        run: zig build
+        run: echo ${{ github.ref }} && zig build
 
       # ZLS Tests currently fail on windows? Once they are passing and kept up to date, this can be enabled everywhere
       - name: Run tests
