@@ -1,4 +1,5 @@
-const bb = @import("../../bootboot.zig");
+const std = @import("std");
+const BootBootInfo = @import("core").boot.BootBootInfo;
 const mmio = @import("mmio.zig");
 const Sys = @import("../../sys.zig").Sys;
 const Serial = @import("serial.zig").Serial;
@@ -11,7 +12,7 @@ const ArchSys = struct {
 
 var archSys: ArchSys = undefined;
 
-pub fn init(bootboot: *bb.BootBootInfo) *Sys {
+pub fn init(bootboot: *BootBootInfo) *Sys {
     mmio.init(bootboot);
     // const serial = uart.Serial.init();
     // serial.initPreInterrupt();

@@ -1,56 +1,19 @@
 const builtin = @import("builtin");
 const StackTrace = @import("std").builtin.StackTrace;
 const std = @import("std");
-const bb = @import("bootboot.zig");
-const screen = @import("screen.zig");
-const Sys = @import("sys.zig").Sys;
+const BootBootInfo = @import("core").boot.BootBootInfo;
+const Sys = @import("core").sys.Sys;
+const arch = @import("arch");
+const sys = @import("sys");
+const screen = @import("sys/screen.zig");
 
-const archPath = "arch/" ++ @tagName(builtin.cpu.arch);
-const archInit = @import(archPath ++ "/init.zig");
-
-extern var bootboot: bb.BootBootInfo;
 extern var fb: [*]u8;
+extern var bootboot: BootBootInfo;
 
-var sys: *Sys = undefined;
-
-// TODO take log level from kernel args?
-pub const log_level: std.log.Level = .debug;
-
-// Define root.log to override the std implementation
-pub fn log(
-    comptime level: std.log.Level,
-    comptime scope: @TypeOf(.EnumLiteral),
-    comptime format: []const u8,
-    args: anytype,
-) void {
-    const prefix = "[" ++ @tagName(level) ++ "] ";
-
-    // TODO lock?
-    sys.serial.print(prefix);
-
-    var buf: [2048]u8 = undefined;
-    if (std.fmt.bufPrint(buf[0..], format, args)) |str| {
-        sys.serial.print(str);
-        sys.serial.print("x\n");
-    } else |err| {
-        sys.serial.print(" (Error formatting: '" ++ format ++ "' error: ");
-        sys.serial.print(@errorName(err));
-        sys.serial.print(")\n");
-    }
-}
-
-pub fn panic(msg: []const u8, stack_trace: ?*StackTrace) noreturn {
-    sys.serial.print("===============================\n");
-    sys.serial.print("Kernel Panic.  Guru Meditation.\n");
-    sys.serial.print(msg);
-    sys.serial.print("\n");
-    // TODO Use halt instruction
-    // TODO Dump stacktrace: https://andrewkelley.me/post/zig-stack-traces-kernel-panic-bare-bones-os.html
-    while (true) {}
-}
+var sysx: *Sys = undefined;
 
 export fn kernelStart() void {
-    sys = archInit.init(&bootboot);
+    sysx = arch.init(&bootboot);
     std.log.info("Copper {}", .{123});
 
     // TODO cpu timing setup

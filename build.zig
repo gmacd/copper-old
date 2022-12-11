@@ -2,6 +2,7 @@ const builtin = @import("builtin");
 const std = @import("std");
 const Array = std.ArrayList;
 const Builder = std.build.Builder;
+const FileSource = std.build.FileSource;
 const CrossTarget = std.zig.CrossTarget;
 const Arch = std.Target.Cpu.Arch;
 const Step = std.build.Step;
@@ -15,49 +16,74 @@ const buildDir = "zig-out";
 pub fn build(b: *Builder) void {
     print("zig version {}\n", .{builtin.zig_version});
 
-    const kernelStepX86 = buildKernel(b, Arch.x86_64);
+    //const kernelStepX86 = buildKernel(b, Arch.x86_64);
     const kernelStepAarch64 = buildKernel(b, Arch.aarch64);
-    _ = kernelStepX86;
+    _ = kernelStepAarch64;
     //_ = kernelStepAarch64;
     //const kernelOutputPath = buildKernelImage(b, kernelStepX86, kernelStepAarch64);
     //qemuStep(b, kernelOutputPath);
 }
 
+// TODO Make core pkg that arches can depend on and call into.
+// Maybe put interfaces there?
+
 /// Build the kernel for the given architecture
 fn buildKernel(b: *Builder, comptime arch: Arch) *Step {
+
     // Standard release options allow the person running `zig build` to select
     // between Debug, ReleaseSafe, ReleaseFast, and ReleaseSmall.
     const buildMode = b.standardReleaseOptions();
     const target = CrossTarget{ .cpu_arch = arch, .os_tag = .freestanding, .abi = .eabihf };
 
     // Build kernel
+    const linkerSource = FileSource{ .path = "src/linker.ld" };
     const kernel = b.addExecutable("copper." ++ @tagName(arch), "src/main.zig");
+
+    const corePkg = std.build.Pkg{
+        .name = "core",
+        .source = .{ .path = "src/core/core.zig" },
+        .dependencies = &[_]std.build.Pkg{},
+    };
+    const archPkg = std.build.Pkg{
+        .name = "arch",
+        .source = .{ .path = "src/arch/" ++ @tagName(arch) ++ "/init.zig" },
+        .dependencies = &[_]std.build.Pkg{corePkg},
+    };
+    const sysPkg = std.build.Pkg{
+        .name = "sys",
+        .source = .{ .path = "src/sys/init.zig" },
+        .dependencies = &[_]std.build.Pkg{},
+    };
+
+    kernel.addPackage(corePkg);
+    kernel.addPackage(archPkg);
+    kernel.addPackage(sysPkg);
+    
     kernel.addAssemblyFile("src/arch/" ++ @tagName(arch) ++ "/_start.s");
     kernel.setBuildMode(buildMode);
     kernel.setTarget(target);
-    kernel.setLinkerScriptPath("src/linker.ld");
+    kernel.setLinkerScriptPath(linkerSource);
     kernel.setOutputDir(buildDir);
-    kernel.addObjectFile(buildDir++"/font.o");
 
     b.default_step.dependOn(&kernel.step);
 
-    const lldTargetEmulation = switch (arch) {
-        Arch.x86_64 => "elf_x86_64",
-        Arch.aarch64 => "aarch64elf",
-        else => unreachable,
-    };
+    // const lldTargetEmulation = switch (arch) {
+    //     Arch.x86_64 => "elf_x86_64",
+    //     Arch.aarch64 => "aarch64elf",
+    //     else => unreachable,
+    // };
 
-    // Convert font to object file
-    const build_font = b.addSystemCommand(&[_][]const u8{
-        //"ld.lld", "-r", "-b", "binary", "-o", "font.o", "assets/font.psf",
-        "ld.lld", "-m", lldTargetEmulation, "-z", "noexecstack", "-r", "-b", "binary", "-o", buildDir ++ "/font.o", "assets/font.psf",
-    });
-    kernel.step.dependOn(&build_font.step);
+    // // Convert font to object file
+    // const build_font = b.addSystemCommand(&[_][]const u8{
+    //     //"ld.lld", "-r", "-b", "binary", "-o", "font.o", "assets/font.psf",
+    //     "ld", "-m", lldTargetEmulation, "-z", "noexecstack", "-r", "-b", "binary", "-o", buildDir ++ "/font.o", "assets/font.psf",
+    // });
+    // kernel.step.dependOn(&build_font.step);
 
     return &kernel.step;
 }
 
-/// Build a bootboot-based image containing both x86_64 and aarch64 kernels
+// Build a bootboot-based image containing both x86_64 and aarch64 kernels
 // fn buildKernelImage(b: *Builder, kernelStepX86: *Step, kernelStepAarch64: *Step) []const u8 {
 //     b.installFile("build/copper.x86_64", "build/boot/x86_64/sys/copperkernel");
 //     b.installFile("build/copper.aarch64", "build/boot/aarch64/sys/copperkernel");

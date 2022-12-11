@@ -1,7 +1,9 @@
 //! Basic screen functionality
 
 const std = @import("std");
-const bb = @import("bootboot.zig");
+const BootBootInfo = @import("core").boot.BootBootInfo;
+
+const embeddedFont = @embedFile("fonts/font.psf");
 
 //extern fn printx(s: []u8) void;
 
@@ -30,9 +32,10 @@ const PsFont = packed struct {
     glyphs: u8,
 };
 
-extern const _binary_assets_font_psf_start: u8;
+//var Font: *const PSFFont = @ptrCast(*const PSFFont, &FontEmbed);
+//extern const _binary_assets_font_psf_start: u8;
 extern var fb: [*]u8;
-extern var bootboot: bb.BootBootInfo;
+extern var bootboot: BootBootInfo;
 
 // void puts(char *s)
 // {
@@ -56,8 +59,9 @@ extern var bootboot: bb.BootBootInfo;
 // }
 
 pub fn print(str: []const u8) void {
-    std.log.info("Coppe {c} {d}", .{ '#', 567 });
-    const font: *const PsFont = @ptrCast(*const PsFont, &_binary_assets_font_psf_start);
+    std.log.info("Copper {c} {d}", .{ '#', 567 });
+    const font: *const PsFont = @ptrCast(*const PsFont, &embeddedFont);
+    @compileLog("comptime font", @typeName(@TypeOf(font)), font.width);
     //    std.log.info("font w:{} h:", .{123});
 
     var kx: u32 = 0;
@@ -65,7 +69,7 @@ pub fn print(str: []const u8) void {
     for (str) |c| {
         //std.log.info("2", .{});
         const glyphIdx = if (c > 0 and c < font.numGlyphs) c else 0;
-        var glyph: *u32 = @intToPtr(*u32, (@ptrToInt(&_binary_assets_font_psf_start) + font.headerSize + glyphIdx * font.bytesPerGlyph));
+        var glyph: *u32 = @intToPtr(*u32, (@ptrToInt(&embeddedFont) + font.headerSize + glyphIdx * font.bytesPerGlyph));
         var offs = kx * (font.width + 1) * 4;
 
         var y: u32 = 0;
